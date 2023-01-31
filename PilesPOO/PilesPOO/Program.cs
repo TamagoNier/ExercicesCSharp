@@ -1,9 +1,10 @@
-﻿using PilesPOO;
+﻿using MesOutils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MesOutils.Utilitaires;
 
 
 namespace MesOutils
@@ -14,12 +15,19 @@ namespace MesOutils
         {
             try 
             { 
-                TestPileVidePleine(5);
+                //TestPileVidePleine(5);
 
-                TesteEmpiler(3);
-                TesteEmpiler(5);
+                //TesteEmpiler(3);
+                //TesteEmpiler(5);
 
-                TesteEmpilerDepiler();
+                //TesteEmpilerDepiler();
+
+                int nbSaisi = SaisirNb();
+                Console.WriteLine("Nombre Saisi : " + nbSaisi);
+                nbSaisi = SaisirNb(10);
+                Console.WriteLine("Nombre Saisi : " + nbSaisi);
+                nbSaisi = SaisirNb(10,30);
+                Console.WriteLine("Nombre Saisi : " + nbSaisi);
 
             }
             catch(Exception ex)
