@@ -28,16 +28,27 @@ namespace PilesPOO
         /// </summary>
         /// <param name="nbMaxElt"></param>
         /// <param name="elements"></param>
-        public Pile(int nbMaxElt, List<int> elements)
+        public Pile(int nbMaxElt)
         {
             this.NbMaxElt = nbMaxElt;
             this.elements = new List<int>();
         }
 
+        /// <summary>
+        /// renvoi ou modifie la valeur nbMaxElt
+        /// </summary>
         public int NbMaxElt //Property
         {
             get {
-                return nbMaxElt;
+                if (nbMaxElt > 0)
+                {
+                    return nbMaxElt;
+                }
+                else
+                {
+                    throw new Exception("Le nombre maximal doit etre supérieur à 0");
+                }
+                
             }
             set
             {
@@ -45,9 +56,40 @@ namespace PilesPOO
             }
         }
 
-        public bool PileVide(Pile unePile)
+        public bool PileVide()
         {
-            return unePile.elements.Count() == 0;
+            return this.elements.Count() == 0;
+        }
+
+        public bool PilePleine()
+        {
+            return this.elements.Count() == NbMaxElt;
+        }
+
+        public void Empiler(int nb)
+        {
+            if (this.PilePleine())
+            {
+                throw new Exception("La pile est pleine, impossible à empiler");
+            }
+            else
+            {
+                this.elements.Add(nb);
+            }
+        }
+        public int Depiler()
+        {
+            if (this.PileVide())
+            {
+                throw new Exception("La Pile est vide, impossible de dépiler");
+            }
+            else
+            {
+                int indiceSommet = this.elements.Count - 1;
+                int retour = this.elements[indiceSommet];
+                this.elements.RemoveAt(indiceSommet);
+                return retour;
+            }
         }
 
     }

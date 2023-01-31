@@ -1,0 +1,7 @@
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\obj\Debug\PilesPOO.csproj.AssemblyReference.cache
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\obj\Debug\PilesPOO.csproj.CoreCompileInputs.cache
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\bin\Debug\PilesPOO.exe.config
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\bin\Debug\PilesPOO.exe
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\bin\Debug\PilesPOO.pdb
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\obj\Debug\PilesPOO.exe
+D:\BTS Semestre 2\Bloc 2 - SLAM\c#\PilesPOO\PilesPOO\obj\Debug\PilesPOO.pdb
