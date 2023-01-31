@@ -65,5 +65,43 @@ namespace MesOutils
             } while (nb < pMin & nb > pMax);
             return nb;
         }
+
+        static string Convertir()
+        {
+
+            int pNbElements = SaisirNb();
+            int pNbAConvertir = SaisirNb();
+            int pNewBase = SaisirNb();
+
+            Pile restes = new Pile(pNbElements);
+            string retour = "";
+
+            do
+            {
+                restes.Empiler(pNbAConvertir % pNewBase);
+                pNbAConvertir /= pNewBase;
+            } while (!restes.PilePleine() && pNbAConvertir != 0);
+
+            if (pNbAConvertir != 0)
+            {
+                throw new Exception("Espace Trop Petit");
+            }
+
+            while (!restes.PileVide())
+            {
+                int nbDepile = restes.Depiler();
+                if (nbDepile >= 10)
+                {
+                    retour += nbDepile.ToString("X");
+                }
+                else
+                {
+                    retour += nbDepile.ToString();
+                }
+            }
+
+            return retour;
+
+        }
     }
 }
