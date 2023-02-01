@@ -11,7 +11,7 @@ namespace MesOutils
     /// On ajoute après le dernier élément ajouté.
     /// On retire toujours le dernier élément ajouté.
     /// </summary>
-    class Pile<T>
+    class Pile
     {
         /// <summary>
         /// Nombre maximum d'élements de la pile
@@ -21,7 +21,7 @@ namespace MesOutils
         /// <summary>
         /// Liste contenat les éléments de la pile
         /// </summary>
-        private List<T> elements;
+        private List<int> elements;
 
         /// <summary>
         /// Constructeur de la classe Pile
@@ -30,45 +30,36 @@ namespace MesOutils
         /// <param name="elements"></param>
         public Pile(int nbMaxElt)
         {
-            this.NbMaxElt = nbMaxElt;
-            this.elements = new List<T>();
+            this.nbMaxElt = nbMaxElt;
+            // création de l'objet elements 
+            this.elements = new List<int>();
         }
 
-        /// <summary>
-        /// renvoi ou modifie la valeur nbMaxElt
-        /// </summary>
-        public int NbMaxElt //Property
-        {
-            get {
-
-                return nbMaxElt;    
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    nbMaxElt = value;
-                }
-                else
-                {
-                    throw new Exception("Le nombre maximal doit etre supérieur à 0");
-                }
-
-                
-            }
-        }
+        
+       /// <summary>
+       /// retourne vrai si la pile ne contient aucun élément
+       /// </summary>
+       /// <returns>vrai ou faux</returns>
 
         public bool PileVide()
         {
             return this.elements.Count() == 0;
         }
 
+        /// <summary>
+        /// retourne vrai si la pile contient le nombre maximum d'éléments
+        /// </summary>
+        /// <returns>vrai ou faux</returns>
         public bool PilePleine()
         {
-            return this.elements.Count() == NbMaxElt;
+            return this.elements.Count() == this.nbMaxElt;
         }
-
-        public void Empiler(T nb)
+        /// <summary>
+        /// Rajoute l'élément passé en paramètre dans la pile si la pile
+        /// n'est pas pleine, sinon déclenche une exception
+        /// </summary>
+        /// <param name="nb">nombre à empiler</param>
+        public void Empiler(int nb)
         {
             if (this.PilePleine())
             {
@@ -79,7 +70,12 @@ namespace MesOutils
                 this.elements.Add(nb);
             }
         }
-        public T Depiler()
+        /// <summary>
+        /// Renvoie le dernier élément empilé si la pile n'est pas vide. Déclenche une exception si la pile 
+        /// est vide
+        /// </summary>
+        /// <returns></returns>
+        public int Depiler()
         {
             if (this.PileVide())
             {
@@ -88,7 +84,7 @@ namespace MesOutils
             else
             {
                 int indiceSommet = this.elements.Count - 1;
-                T retour = this.elements[indiceSommet];
+                int retour = this.elements[indiceSommet];
                 this.elements.RemoveAt(indiceSommet);
                 return retour;
             }
