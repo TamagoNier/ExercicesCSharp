@@ -47,7 +47,7 @@ namespace MesOutils
                 Console.WriteLine("Saissez la nouvelle base.");
                 int pNewBase = Utilitaires.SaisirNb();
 
-                Pile unePile = new Pile(pNbElements);
+                Pile<Int32> unePile = new Pile<Int32>(pNbElements);
                 string retour = "";
 
                 while (pNbAConvertir != 0)
@@ -74,7 +74,7 @@ namespace MesOutils
 
             static void TestPileVidePleine(int nbElem)
         {
-            Pile unePile = new Pile(nbElem);
+            Pile<Int32> unePile = new Pile<Int32>(nbElem);
             if (unePile.PileVide())
             {
                 Console.WriteLine("la pile est vide");
@@ -95,7 +95,7 @@ namespace MesOutils
 
         static void TesteEmpiler(int nbElem)
         {
-            Pile unePile = new Pile(nbElem);
+            Pile<Int32> unePile = new Pile<Int32>(nbElem);
             unePile.Empiler(2);
             unePile.Empiler(14);
             unePile.Empiler(6);
@@ -103,7 +103,7 @@ namespace MesOutils
 
         static void TesteEmpilerDepiler()
         {
-            Pile unePile = new Pile(5);
+            Pile<Int32> unePile = new Pile<Int32>(5);
             unePile.Empiler(5);
             unePile.Empiler(2);
             unePile.Empiler(22);
