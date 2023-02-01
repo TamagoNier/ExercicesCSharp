@@ -14,7 +14,7 @@ namespace MesOutils
         static void Main(string[] args)
         {
             try 
-            { 
+            {
                 //TestPileVidePleine(5);
 
                 //TesteEmpiler(3);
@@ -22,13 +22,14 @@ namespace MesOutils
 
                 //TesteEmpilerDepiler();
 
-                int nbSaisi = SaisirNb();
-                Console.WriteLine("Nombre Saisi : " + nbSaisi);
-                nbSaisi = SaisirNb(10);
-                Console.WriteLine("Nombre Saisi : " + nbSaisi);
-                nbSaisi = SaisirNb(10,30);
-                Console.WriteLine("Nombre Saisi : " + nbSaisi);
+                //int nbSaisi = SaisirNb();
+                //Console.WriteLine("Nombre Saisi : " + nbSaisi);
+                //nbSaisi = SaisirNb(10);
+                //Console.WriteLine("Nombre Saisi : " + nbSaisi);
+                //nbSaisi = SaisirNb(10,30);
+                //Console.WriteLine("Nombre Saisi : " + nbSaisi);
 
+                Console.WriteLine("Aprés Conversion : " + Convertir()); 
             }
             catch(Exception ex)
             {
@@ -38,9 +39,47 @@ namespace MesOutils
             
         }
 
-        static void TestPileVidePleine(int nbElem)
+        static string Convertir()
         {
-            Pile unePile = new Pile(nbElem);
+            Console.WriteLine("Saisissez le nombre maximal d'éléments dans la liste.");
+            int pNbElements = SaisirNb();
+            Console.WriteLine("Saisissez le nombre à convertir.");
+            int pNbAConvertir = SaisirNb();
+            Console.WriteLine("Saissez la nouvelle base.");
+            int pNewBase = SaisirNb();
+
+            Pile<Int32> restes = new Pile<Int32>(pNbElements);
+            string retour = "";
+
+            do
+            {
+                restes.Empiler(pNbAConvertir % pNewBase);
+                pNbAConvertir /= pNewBase;
+            } while (!restes.PilePleine() && pNbAConvertir != 0);
+
+            if (pNbAConvertir != 0)
+            {
+                throw new Exception("Espace Trop Petit");
+            }
+
+            while (!restes.PileVide())
+            {
+                int nbDepile = restes.Depiler();
+                if (nbDepile >= 10)
+                {
+                    retour += nbDepile.ToString("X");
+                }
+                else
+                {
+                    retour += nbDepile.ToString();
+                }
+            }
+            return retour;
+        }
+
+            static void TestPileVidePleine(int nbElem)
+        {
+            Pile<Int32> unePile = new Pile<Int32>(nbElem);
             if (unePile.PileVide())
             {
                 Console.WriteLine("la pile est vide");
@@ -61,7 +100,7 @@ namespace MesOutils
 
         static void TesteEmpiler(int nbElem)
         {
-            Pile unePile = new Pile(nbElem);
+            Pile<Int32> unePile = new Pile<Int32>(nbElem);
             unePile.Empiler(2);
             unePile.Empiler(14);
             unePile.Empiler(6);
@@ -69,7 +108,7 @@ namespace MesOutils
 
         static void TesteEmpilerDepiler()
         {
-            Pile unePile = new Pile(5);
+            Pile<Int32> unePile = new Pile<Int32>(5);
             unePile.Empiler(5);
             unePile.Empiler(2);
             unePile.Empiler(22);

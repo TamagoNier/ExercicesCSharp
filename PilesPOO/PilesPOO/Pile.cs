@@ -11,7 +11,7 @@ namespace MesOutils
     /// On ajoute après le dernier élément ajouté.
     /// On retire toujours le dernier élément ajouté.
     /// </summary>
-    class Pile
+    class Pile<T>
     {
         /// <summary>
         /// Nombre maximum d'élements de la pile
@@ -21,7 +21,7 @@ namespace MesOutils
         /// <summary>
         /// Liste contenat les éléments de la pile
         /// </summary>
-        private List<int> elements;
+        private List<T> elements;
 
         /// <summary>
         /// Constructeur de la classe Pile
@@ -31,7 +31,7 @@ namespace MesOutils
         public Pile(int nbMaxElt)
         {
             this.NbMaxElt = nbMaxElt;
-            this.elements = new List<int>();
+            this.elements = new List<T>();
         }
 
         /// <summary>
@@ -40,19 +40,21 @@ namespace MesOutils
         public int NbMaxElt //Property
         {
             get {
-                if (nbMaxElt > 0)
+
+                return nbMaxElt;    
+            }
+            set
+            {
+                if (value < 0)
                 {
-                    return nbMaxElt;
+                    nbMaxElt = value;
                 }
                 else
                 {
                     throw new Exception("Le nombre maximal doit etre supérieur à 0");
                 }
+
                 
-            }
-            set
-            {
-                nbMaxElt = value;
             }
         }
 
@@ -66,7 +68,7 @@ namespace MesOutils
             return this.elements.Count() == NbMaxElt;
         }
 
-        public void Empiler(int nb)
+        public void Empiler(T nb)
         {
             if (this.PilePleine())
             {
@@ -77,7 +79,7 @@ namespace MesOutils
                 this.elements.Add(nb);
             }
         }
-        public int Depiler()
+        public T Depiler()
         {
             if (this.PileVide())
             {
@@ -86,7 +88,7 @@ namespace MesOutils
             else
             {
                 int indiceSommet = this.elements.Count - 1;
-                int retour = this.elements[indiceSommet];
+                T retour = this.elements[indiceSommet];
                 this.elements.RemoveAt(indiceSommet);
                 return retour;
             }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MesOutils
 {
+{
     public abstract class Utilitaires
     {
         public static int SaisirNb()
@@ -16,10 +17,10 @@ namespace MesOutils
                 Console.WriteLine("Veuillez saisir une valeur : ");                    
                 nb = Convert.ToInt32(Console.ReadLine());
             }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return nb;
         }
 
@@ -65,43 +66,6 @@ namespace MesOutils
             } while (nb < pMin & nb > pMax);
             return nb;
         }
-
-        static string Convertir()
-        {
-
-            int pNbElements = SaisirNb();
-            int pNbAConvertir = SaisirNb();
-            int pNewBase = SaisirNb();
-
-            Pile restes = new Pile(pNbElements);
-            string retour = "";
-
-            do
-            {
-                restes.Empiler(pNbAConvertir % pNewBase);
-                pNbAConvertir /= pNewBase;
-            } while (!restes.PilePleine() && pNbAConvertir != 0);
-
-            if (pNbAConvertir != 0)
-            {
-                throw new Exception("Espace Trop Petit");
-            }
-
-            while (!restes.PileVide())
-            {
-                int nbDepile = restes.Depiler();
-                if (nbDepile >= 10)
-                {
-                    retour += nbDepile.ToString("X");
-                }
-                else
-                {
-                    retour += nbDepile.ToString();
-                }
-            }
-
-            return retour;
-
-        }
     }
 }
+
