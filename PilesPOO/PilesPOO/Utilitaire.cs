@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace MesOutils
 {
-{
     public abstract class Utilitaires
     {
         public static int SaisirNb()
