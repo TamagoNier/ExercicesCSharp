@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PilesPOO.Tests;
+using System;
 //using MesOutils;
 
 
@@ -24,9 +25,17 @@ namespace MesOutils
                 //nbSaisi = Utilitaires.SaisirNb();
                 //Console.WriteLine("Nombre Saisi : " + nbSaisi);
 
-                String nbConverti = Convertir();
-                Console.WriteLine("Aprés Conversion : " + nbConverti ); 
-                Console.WriteLine( "Fin normale du programme");
+                //String nbConverti = Convertir();
+                //Console.WriteLine("Aprés Conversion : " + nbConverti ); 
+
+                //TestPile.TestPileVide(5);
+                //TestPile.TestEmpiler(2,1);
+                //TestPile.TestEmpilerDepiler(4);
+
+                string conv = Utilitaires.Conversion(156, 8);
+                Console.WriteLine(conv);
+
+                Console.WriteLine("Fin normale du programme");
             }
             catch(Exception ex)
             {
@@ -68,58 +77,7 @@ namespace MesOutils
                         retour += nbDepile.ToString();
                     }
                 }
-                return retour;
-            
-        }
-
-            static void TestPileVidePleine(int nbElem)
-        {
-            Pile<Int32> unePile = new Pile<Int32>(nbElem);
-            if (unePile.PileVide())
-            {
-                Console.WriteLine("la pile est vide");
-            }
-            else
-            {
-                Console.WriteLine("la pile n'est pas vide");
-            }
-            if (unePile.PilePleine())
-            {
-                Console.WriteLine("la pile est pleine");
-            }
-            else
-            {
-                Console.WriteLine("la pile n'est pas pleine");
-            }
-        }
-
-        static void TesteEmpiler(int nbElem)
-        {
-            Pile<Int32> unePile = new Pile<Int32>(nbElem);
-            unePile.Empiler(2);
-            unePile.Empiler(14);
-            unePile.Empiler(6);
-        }
-
-        static void TesteEmpilerDepiler()
-        {
-            Pile<Int32> unePile = new Pile<Int32>(5);
-            unePile.Empiler(5);
-            unePile.Empiler(2);
-            unePile.Empiler(22);
-            int valeurDepilee = unePile.Depiler();
-            Console.WriteLine("Valeur dépilée : " + valeurDepilee);
-            unePile.Empiler(17);
-            valeurDepilee = unePile.Depiler();
-            Console.WriteLine("Valeur dépilée : " + valeurDepilee);
-            valeurDepilee = unePile.Depiler();
-            Console.WriteLine("Valeur dépilée : " + valeurDepilee);
-            valeurDepilee = unePile.Depiler();
-            Console.WriteLine("Valeur dépilée : " + valeurDepilee);
-            valeurDepilee = unePile.Depiler();
-            Console.WriteLine("Valeur dépilée : " + valeurDepilee);
-
-
+                return retour;   
         }
     }
 }

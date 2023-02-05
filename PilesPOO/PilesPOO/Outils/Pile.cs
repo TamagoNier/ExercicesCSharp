@@ -26,18 +26,6 @@ namespace MesOutils
         /// </summary>
         public int Count { get => this.elements.Count; }
 
-        /// <summary>
-        /// Constructeur de la classe Pile
-        /// </summary>
-        /// <param name="nbMaxElt"></param>
-        /// <param name="elements"></param>
-        public Pile(int nbMaxElt)
-        {
-            this.nbMaxElt = nbMaxElt;
-            // création de l'objet elements 
-            this.elements = new List<T>();
-        }
-
         
        /// <summary>
        /// retourne vrai si la pile ne contient aucun élément
