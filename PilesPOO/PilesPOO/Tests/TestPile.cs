@@ -86,5 +86,46 @@ namespace PilesPOO.Tests
                 Console.WriteLine(ex.Message);
             }
         }
+
+        static string InversePhrase(string phrase)
+        {
+            Pile<string> maPile = new Pile<String>();
+            var tab = phrase.Split(' ');
+            foreach (string mot in tab)
+            {
+                maPile.Empiler(mot);
+            }
+            string message = "";
+            while (!maPile.PileVide())
+            {
+                message += " " + maPile.Depiler();
+            }
+            return message;
+        }
+        internal static string InversePhraseSansPile(string phrase)
+        {
+            string message = "";
+            var tab = phrase.Split(' ');
+            foreach (string mot in tab)
+            {
+                message = mot + " " + message;
+            }
+            return message;
+        }
+
+        static void TesteInversePhrase()
+        {
+            try
+            {
+                string phrase = UtilitaireAPI.RecupereLoremIpsum(3);
+                Console.WriteLine(phrase);
+                string phraseInversee = InversePhrase(phrase);
+                Console.WriteLine(phraseInversee);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
